@@ -34,6 +34,11 @@ services:
     deploy:
       mode: replicated #
       replicas: 1
+
+
+
+
+
   mailer-service:
     build:
       context: ./../mail-service
@@ -64,6 +69,18 @@ services:
       replicas: 1
     environment:
       DSN: "host=postgres port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC connect_timeout=5"
+
+  listener-service:
+    #build service
+    build:
+      #where is context
+      context: ./../listener-service
+      #docker file path 
+      dockerfile: ./../listener-service/listener-service.dockerfile
+    deploy:
+      mode: replicated #
+      replicas: 1
+
 
   postgres:
     image: "postgres:14.0"
