@@ -34,6 +34,11 @@ services:
     deploy:
       mode: replicated #
       replicas: 1
+
+
+
+
+
   mailer-service:
     build:
       context: ./../mail-service
@@ -64,6 +69,18 @@ services:
       replicas: 1
     environment:
       DSN: "host=postgres port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC connect_timeout=5"
+
+  listener-service:
+    #build service
+    build:
+      #where is context
+      context: ./../listener-service
+      #docker file path 
+      dockerfile: ./../listener-service/listener-service.dockerfile
+    deploy:
+      mode: replicated #
+      replicas: 1
+
 
   postgres:
     image: "postgres:14.0"
@@ -97,11 +114,18 @@ services:
       - "8025:8025"
   
   rabbitmq:
-    image: 'rabbitmq:3.9-alpine'
+    image: 'rabbitmq:management'
     ports:
       - "5672:5672"
+      - "15692:15692"
+      - "15672:15672"
+ 
     deploy:
       mode: replicated
       replicas: 1
     environment:
       - ./db-data/rabbitmq/:/var/lib/rabbitmq/
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
