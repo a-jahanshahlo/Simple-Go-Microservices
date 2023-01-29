@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "495d2948-c5d4-4cdc-bec8-24c908289859",
+		"name": "Go Micro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Broker auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\":\"auth\",\r\n    \"auth\":{\r\n        \"email\":\"admin@example.com\",\r\n        \"password\":\"verysecret\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/handle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Broker log",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\":\"log\",\r\n    \"log\":{\r\n       \"name\":\"authe\",\r\n        \"data\":\"admin@example.com\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/handle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\":\"mail\",\r\n    \"mail\":{\r\n        \"from\":\"admin@example.com\",\r\n        \"to\":\"you@example.com\",\r\n        \"subject\":\"Test mail\",\r\n        \"message\":\"hwllo world\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/handle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"handle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authe-Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\":\"auth\",\r\n    \"auth\":{\r\n        \"email\":\"admin@example.com\",\r\n        \"password\":\"verysecret\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logger-log",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\":\"authe\",\r\n        \"data\":\"admin@example.com\"\r\n    }\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:8085/log",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"log"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
